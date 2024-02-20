@@ -5,12 +5,18 @@ const form = document.querySelector(".form");
 const inputText = document.querySelector(".delay-text");
 
 function delayText(event) {
-    event.preventDefault();
+    
     const delayValue = parseInt(inputText.value);
+    const inputDelay = document.querySelector('input[name="state"]:checked');
+
+    if (!inputDelay) {
+        return;
+    }
+    event.preventDefault();
+
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            const inputDelay = document.querySelector('input[name="state"]:checked');
-            if (inputDelay && inputDelay.value === 'fulfilled') {
+            if (inputDelay.value === 'fulfilled') {
                 resolve(delayValue);
             } else {
                 reject(delayValue);
@@ -19,11 +25,12 @@ function delayText(event) {
     });
     promise.then(handlerSuccess).catch(handlerError);
     inputText.value = '';
-    // const radioButtons = document.querySelectorAll('input[name="state"]');
-    // radioButtons.forEach(button => {
-    //     button.checked = false;
-    // });
+    const radioButtons = document.querySelectorAll('input[name="state"]');
+    radioButtons.forEach(button => {
+        button.checked = false;
+    });
 }
+form.addEventListener('submit', delayText);
 
 function handlerSuccess(delay) {
     iziToast.show({
@@ -47,4 +54,3 @@ function handlerError(delay) {
     });
 }
 
-form.addEventListener('submit', delayText);
