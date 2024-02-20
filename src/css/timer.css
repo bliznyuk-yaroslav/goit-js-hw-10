@@ -25,17 +25,9 @@ color: #2e2f42;
 font-family: "Montserrat", sans-serif;
 }
 button{
-    border-radius: 8px;
 padding: 8px 16px;
 width: 75px;
 height: 40px;
-background: #cfcfcf;
-font-family: var(--font-family);
-font-weight: 500;
-font-size: 16px;
-line-height: 150%;
-letter-spacing: 0.04em;
-color: #989898;
 }
 input{
     width: 272px;
@@ -46,17 +38,4 @@ font-size: 16px;
 line-height: 150%;
 letter-spacing: 0.04em;
 color: #2e2f42;
-}
-button:hover{
-    border-radius: 8px;
-padding: 8px 16px;
-width: 75px;
-height: 40px;
-background: #4e75ff;
-font-family: var(--font-family);
-font-weight: 500;
-font-size: 16px;
-line-height: 150%;
-letter-spacing: 0.04em;
-color: #fff;
 }

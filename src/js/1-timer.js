@@ -70,6 +70,8 @@ function validateSelectedDate() {
 class Timer {
     start() {
         timerInterval = setInterval(updateTime, 1000);
+        startButton.disabled = true;
+        input.disabled = true;
     }
 }
 
